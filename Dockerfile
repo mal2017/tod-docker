@@ -40,5 +40,21 @@ RUN cd meme_4.9.1 && ./configure --prefix=/meme --with-url=http://meme-suite.org
 RUN ln -s /meme/bin/* /usr/local/bin/
 
 # get coltron (+ networkx pkg)
-RUN pip install coltron
-RUN coltron-get-data
+#RUN pip install coltron
+#RUN coltron-get-data
+
+RUN wget ftp://ftp.ccb.jhu.edu/pub/data/bowtie2_indexes/hg19.zip
+
+RUN mkdir -p genome/index
+
+RUN unzip hg19.zip -d /genome/index
+
+RUN mkdir /home/work
+RUN mkdir /home/template
+
+WORKDIR /home/work/
+
+
+ADD datatable.txt /home/template/
+
+ADD pipeline_template.py /home/template/
