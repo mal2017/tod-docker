@@ -17,7 +17,8 @@ RUN ln -s /pipeline/bamliquidator_internal/bamliquidatorbatch/bamliquidator_batc
 # get bowtie2
 RUN apt-get install wget unzip
 RUN wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.2.1/bowtie2-2.2.1-linux-x86_64.zip
-RUN ln -s /bowtie2-2.2.1/bowtie2-* /usr/local/bin/
+RUN unzip bowtie2-2.2.1-linux-x86_64.zip
+RUN ln -s /bowtie2-2.2.1/bowtie2* /usr/local/bin/
 
 # get macs1.4
 RUN wget https://github.com/downloads/taoliu/MACS/MACS-1.4.2-1.tar.gz
